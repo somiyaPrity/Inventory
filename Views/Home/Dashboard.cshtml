@@ -1,0 +1,142 @@
+﻿@using OST_inventory_B_2.Models;
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+
+    @* Equipment list *@
+    <div class="card mt-2 mb-4 shadow border-0">
+        <div class="card-body">
+            <div class="row" style="max-height:550px">
+
+                <div class="col-md-12 text-center mb-2">
+                    <p class="h2">Equipment List</p>
+                </div>
+                <div class="col-md-12 ">
+                    <div class="h-50 overflow-scroll">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Sl.</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Product Quantity</th>
+                                    <th scope="col">Entry Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                    List<Equipment> equp = Equipment.ListEquipment();
+
+                                    foreach (Equipment obj in equp)
+                                    {
+                                        <tr>
+                                            <th scope="row">@obj.EquipmentId</th>
+                                            <td>@obj.Name</td>
+                                            <td>@obj.Quantity</td>
+                                            <td>@obj.EntryDate</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* Member List *@
+    <div class="card shadow mt-4 border-0">
+        <div class="card-body">
+            <div class="row" style="max-height:550px">
+
+                <div class="col-md-12 text-center mb-2">
+                    <p class="h2">Member List</p>
+                </div>
+                <div class="col-md-12">
+                    <div class="h-50 overflow-scroll">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Sl.</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Designation</th>
+                                    <th scope="col">Address</th>
+                                    <th scope="col">Contact Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                    List<Equipment> m = Equipment.ListEquipment();
+
+                                    foreach (Equipment obj in m)
+                                    {
+                                        <tr>
+                                            <th scope="row">@obj.Member.MemberId</th>
+                                            <td>@obj.Member.MemberName</td>
+                                            <td>@obj.Member.MemberDesig</td>
+                                            <td>@obj.Member.Memberaddress</td>
+                                            <td>@obj.Member.MemberContact</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* Member List *@
+    <div class="card shadow mt-4 border-0">
+        <div class="card-body">
+            <div class="row" style="max-height:550px">
+
+                <div class="col-md-12 text-center mb-2">
+                    <p class="h2">Equipment Assigned Member List</p>
+                </div>
+                <div class="col-md-12">
+                    <div class="h-50 overflow-scroll">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Product ID</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Product Quantity</th>
+                                    <th scope="col">Member Name</th>
+                                    <th scope="col">Member Address</th>
+                                    <th scope="col">Member Contact Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @{
+                                    List<Equipment> i = Equipment.ListEquipment();
+
+                                    foreach (Equipment obj in i)
+                                    {
+                                        <tr>
+                                            <th scope="row">@obj.EquipmentId</th>
+                                            <td>@obj.Name</td>
+                                            <td>@obj.Quantity</td>
+                                            <td>@obj.Member.MemberName</td>
+
+                                            <td>@obj.Member.Memberaddress</td>
+                                            <td>@obj.Member.MemberContact</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
